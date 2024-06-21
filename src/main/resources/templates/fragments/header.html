@@ -1,0 +1,31 @@
+<div th:with="currentPage=${mycurrentrequest}">
+<header>
+	<div class="menu_block ">
+		<div class="container_12">
+			<div class="grid_12">
+				<nav class="horizontal-nav full-width horizontalNav-notprocessed">
+					<ul class="sf-menu">
+						<li th:class="${(currentPage=='/home' || currentPage=='/' || currentPage=='/index') ? 'current' : ''}"><a href="/home">Home</a></li>
+						<li th:class="${currentPage=='/about' ? 'current' : ''}"><a href="/about">About</a></li>
+						<li th:class="${currentPage=='/cars' ? 'current' : ''}"><a href="/cars">Cars</a></li>
+						<li th:class="${currentPage=='/services' ? 'current' : ''}"><a href="/services">Services</a></li>
+						<li th:class="${currentPage=='/contacts' ? 'current' : ''}"><a href="/contacts">Contacts</a></li>
+					</ul>
+				</nav>
+				<div class="clear"></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="container_12">
+		<div class="grid_12">
+			<h1>
+				<a href="index.html"> <img src="images/logo.png"
+					alt="Your Happy Family">
+				</a>
+			</h1>
+		</div>
+	</div>
+	<div class="clear"></div>
+</header>
+</div>
