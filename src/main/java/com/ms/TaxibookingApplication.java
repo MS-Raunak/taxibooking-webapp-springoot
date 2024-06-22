@@ -8,6 +8,7 @@ public class TaxibookingApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TaxibookingApplication.class, args);
+		System.out.println("Server Started On Port 8080");
 	}
 
 }
