@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ms.model.BookingForm;
 import com.ms.model.ContactForm;
+import com.ms.service.BookingFormService;
 import com.ms.service.ContactFormService;
 
 @Controller
@@ -23,6 +24,12 @@ public class CarController {
 	@Autowired //Setter method Autowiring instead of fields wiring
 	public void setContactFormService(ContactFormService contactFormService) {
 		this.contactFormService = contactFormService;
+	}
+	
+	BookingFormService bookingFormService;
+	@Autowired
+	public void setBookingFormService(BookingFormService bookingFormService) {
+		this.bookingFormService = bookingFormService;
 	}
 	
 	
@@ -36,6 +43,8 @@ public class CarController {
 		 * which is used to send data from controller to view
 		 */
 		model.addAttribute("mycurrentrequest", requestURI);
+		model.addAttribute("bookingFormObj", new BookingForm());
+
 		return "index";
 	}
 
@@ -62,7 +71,7 @@ public class CarController {
 		 * HttpServletRequest is used to return current request
 		 */
 		model.addAttribute("mycurrentrequest", requestURI);
-		model.addAttribute("bookingFormObj", new BookingForm());
+		//model.addAttribute("bookingFormObj", new BookingForm());//might be mistake to write here that's why commented
 		return "services";
 	}
 
@@ -108,14 +117,26 @@ public class CarController {
 	
 	
 	@PostMapping("/bookingForm")
-	public String bookingForm(@Valid @ModelAttribute("contactFormObj") BookingForm bookingForm, 
+	public String bookingForm(@Valid @ModelAttribute("bookingFormObj") BookingForm bookingForm, 
 								BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
 		
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("bindingResult", bindingResult);
 			return "index";
 		}
-	
+		else if(bookingForm.getAdult() + bookingForm.getChildren() > 4) {
+			model.addAttribute("personExceed", "Maximum 4 person allowed in a taxi");
+			return "index";
+		}
+		//service
+		BookingForm saveBookingFormService = bookingFormService.saveBookingFormService(bookingForm);
+		
+		if(saveBookingFormService!=null) {
+			redirectAttributes.addFlashAttribute("message", "Booking Sucessfully done..");
+		}
+		else {
+			redirectAttributes.addFlashAttribute("message", "Something went wrong");
+		}
 		return "redirect:/index"; 
 	}
 }
