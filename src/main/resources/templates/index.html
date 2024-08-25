@@ -1,234 +1,202 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org">
-	<head>
-		<title>Home</title>
-		<meta charset="utf-8">
-		<meta name = "format-detection" content = "telephone=no" />
-		<link rel="icon" href="images/favicon.ico">
-		<link rel="shortcut icon" href="images/favicon.ico" />
-		<link rel="stylesheet" href="booking/css/booking.css">
-		<link rel="stylesheet" href="css/camera.css">
-		<link rel="stylesheet" href="css/owl.carousel.css">
-		<link rel="stylesheet" href="css/style.css">
-		<script src="js/jquery.js"></script>
-		<script src="js/jquery-migrate-1.2.1.js"></script>
-		<script src="js/script.js"></script>
-		<script src="js/superfish.js"></script>
-		<script src="js/jquery.ui.totop.js"></script>
-		<script src="js/jquery.equalheights.js"></script>
-		<script src="js/jquery.mobilemenu.js"></script>
-		<script src="js/jquery.easing.1.3.js"></script>
-		<script src="js/owl.carousel.js"></script>
-		<script src="js/camera.js"></script>
-		<!--[if (gt IE 9)|!(IE)]><!-->
-		<script src="js/jquery.mobile.customized.min.js"></script>
-		<!--<![endif]-->
-		<script src="booking/js/booking.js"></script>
-		<script>
-			$(document).ready(function(){
-				jQuery('#camera_wrap').camera({
-					loader: false,
-					pagination: false ,
-					minHeight: '444',
-					thumbnails: false,
-					height: '28.28125%',
-					caption: true,
-					navigation: true,
-					fx: 'mosaic'
-				});
-				$().UItoTop({ easingType: 'easeOutQuart' });
-			});
-		</script>
-		<!--[if lt IE 8]>
+<head>
+<title>Home</title>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no" />
+<link rel="icon" href="images/favicon.ico">
+<link rel="shortcut icon" href="images/favicon.ico" />
+<link rel="stylesheet" href="booking/css/booking.css">
+<link rel="stylesheet" href="css/camera.css">
+<link rel="stylesheet" href="css/owl.carousel.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/jquery.js"></script>
+<script src="js/jquery-migrate-1.2.1.js"></script>
+<script src="js/script.js"></script>
+<script src="js/superfish.js"></script>
+<script src="js/jquery.ui.totop.js"></script>
+<script src="js/jquery.equalheights.js"></script>
+<script src="js/jquery.mobilemenu.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/owl.carousel.js"></script>
+<script src="js/camera.js"></script>
+<!--[if (gt IE 9)|!(IE)]><!-->
+<script src="js/jquery.mobile.customized.min.js"></script>
+<!--<![endif]-->
+<script src="booking/js/booking.js"></script>
+<script>
+	$(document).ready(function() {
+		jQuery('#camera_wrap').camera({
+			loader : false,
+			pagination : false,
+			minHeight : '444',
+			thumbnails : false,
+			height : '28.28125%',
+			caption : true,
+			navigation : true,
+			fx : 'mosaic'
+		});
+		$().UItoTop({
+			easingType : 'easeOutQuart'
+		});
+	});
+</script>
+<!--[if lt IE 8]>
 			<div style=' clear: both; text-align:center; position: relative;'>
 				<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
 					<img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
 				</a>
 			</div>
 			<![endif]-->
-		<!--[if lt IE 9]>
+<!--[if lt IE 9]>
 			<script src="js/html5shiv.js"></script>
 			<link rel="stylesheet" media="screen" href="css/ie.css">
 		<![endif]-->
-	</head>
-	<body class="page1" id="top">
-		<div class="main">
-<!--==============================header=================================-->
-			<div th:insert="~{fragments/header.html}"></div>
-			
-			<div class="slider_wrapper ">
-				<div id="camera_wrap" class="">
-					<div data-src="images/slide.jpg" ></div>
-					<div data-src="images/slide1.jpg" ></div>
-					<div data-src="images/slide2.jpg"></div>
+</head>
+<body class="page1" id="top">
+	<div class="main">
+		<!--==============================header=================================-->
+		<div th:insert="~{fragments/header.html}"></div>
+
+		<div class="slider_wrapper ">
+			<div id="camera_wrap" class="">
+				<div data-src="images/slide.jpg"></div>
+				<div data-src="images/slide1.jpg"></div>
+				<div data-src="images/slide2.jpg"></div>
+			</div>
+		</div>
+		<div class="container_12">
+			<div class="grid_4">
+				<div class="banner">
+					<div class="maxheight">
+						<div class="banner_title">
+							<img src="images/icon1.png" alt="">
+							<div class="extra_wrapper">
+								Fast&amp;
+								<div class="color1">Safe</div>
+							</div>
+						</div>
+						Dorem ipsum dolor sit amet, consectetur adipiscinger elit. In
+						mollis erat mattis neque facilisis, sit ameter ultricies erat
+						rutrum. Cras facilisis, nulla vel viver auctor, leo magna sodales
+						felis, quis malesuad <a href="#" class="fa fa-share-square"></a>
+					</div>
 				</div>
 			</div>
-			<div class="container_12">
-				<div class="grid_4">
-					<div class="banner">
-						<div class="maxheight">
-							<div class="banner_title">
-								<img src="images/icon1.png" alt="">
-								<div class="extra_wrapper">Fast&amp;
-									<div class="color1">Safe</div>
-								</div>
+			<div class="grid_4">
+				<div class="banner">
+					<div class="maxheight">
+						<div class="banner_title">
+							<img src="images/icon2.png" alt="">
+							<div class="extra_wrapper">
+								Best
+								<div class="color1">Prices</div>
 							</div>
-							Dorem ipsum dolor sit amet, consectetur adipiscinger elit. In mollis erat mattis neque facilisis, sit ameter ultricies erat rutrum. Cras facilisis, nulla vel viver auctor, leo magna sodales felis, quis malesuad
-							<a href="#" class="fa fa-share-square"></a>
 						</div>
+						Hem ipsum dolor sit amet, consectetur adipiscinger elit. In mollis
+						erat mattis neque facilisis, sit ameter ultricies erat rutrum.
+						Cras facilisis, nulla vel viver auctor, leo magna sodales felis,
+						quis malesuader <a href="#" class="fa fa-share-square"></a>
 					</div>
 				</div>
-				<div class="grid_4">
-					<div class="banner">
-						<div class="maxheight">
-							<div class="banner_title">
-								<img src="images/icon2.png" alt="">
-								<div class="extra_wrapper">Best
-									<div class="color1">Prices</div>
-								</div>
+			</div>
+			<div class="grid_4">
+				<div class="banner">
+					<div class="maxheight">
+						<div class="banner_title">
+							<img src="images/icon3.png" alt="">
+							<div class="extra_wrapper">
+								Package
+								<div class="color1">Delivery</div>
 							</div>
-							Hem ipsum dolor sit amet, consectetur adipiscinger elit. In mollis erat mattis neque facilisis, sit ameter ultricies erat rutrum. Cras facilisis, nulla vel viver auctor, leo magna sodales felis, quis malesuader
-							<a href="#" class="fa fa-share-square"></a>
 						</div>
+						Kurem ipsum dolor sit amet, consectetur adipiscinger elit. In
+						mollis erat mattis neque facilisis, sit ameter ultricies erat
+						rutrum. Cras facilisis, nulla vel viver auctor, leo magna sodales
+						felis, quis malesuki <a href="#" class="fa fa-share-square"></a>
 					</div>
 				</div>
-				<div class="grid_4">
-					<div class="banner">
-						<div class="maxheight">
-							<div class="banner_title">
-								<img src="images/icon3.png" alt="">
-								<div class="extra_wrapper">Package
-									<div class="color1">Delivery</div>
-								</div>
-							</div>
-							Kurem ipsum dolor sit amet, consectetur adipiscinger elit. In mollis erat mattis neque facilisis, sit ameter ultricies erat rutrum. Cras facilisis, nulla vel viver auctor, leo magna sodales felis, quis malesuki
-							<a href="#" class="fa fa-share-square"></a>
+			</div>
+			<h3 style="text-align:center">Service Overview</h3>
+			<div class="clear"></div>
+			
+		</div>
+
+		<!--==============================Content=================================-->
+		<div class="content">
+			<div class="ic"></div>
+			<div class="container_12">			
+				<div
+					style="display: flex; justify-content: center; flex-wrap: wrap; margin-top: -90px;">
+					<!-- Card 1 -->
+					<div
+						style="border: 1px solid #ddd; border-radius: 10px; overflow: hidden; width: 350px; height: 200px; margin: 10px;">
+						<div style="padding: 10px;">
+							<img src="images/page1_img1.jpg" alt="Economy"
+								style="width: 100%; height: auto;">
+						</div>
+						<div
+							style="background-color: #f8f8f8; padding: 10px; text-align: center;">
+							<a href="showBookingForm"
+								style="text-decoration: none; color: #007BFF;">Economy</a>
+						</div>
+					</div>
+					
+					
+					<!-- Card 2 -->
+					<div
+						style="border: 1px solid #ddd; border-radius: 10px; overflow: hidden; width: 300px; margin: 10px;">
+						<div style="padding: 10px;">
+							<img src="images/page1_img2.jpg" alt="Standard"
+								style="width: 100%; height: auto;">
+						</div>
+						<div
+							style="background-color: #f8f8f8; padding: 10px; text-align: center;">
+							<a href="showBookingForm"
+								style="text-decoration: none; color: #007BFF;">Standard</a>
+						</div>
+					</div>
+
+					<!-- Card 3 -->
+					<div
+						style="border: 1px solid #ddd; border-radius: 10px; overflow: hidden; width: 300px; margin: 10px;">
+						<div style="padding: 10px;">
+							<img src="images/page1_img3.jpg" alt="Lux"
+								style="width: 100%; height: auto;">
+						</div>
+						<div
+							style="background-color: #f8f8f8; padding: 10px; text-align: center;">
+							<a href="showBookingForm"
+								style="text-decoration: none; color: #007BFF;">Lux</a>
 						</div>
 					</div>
 				</div>
 				<div class="clear"></div>
-			</div>
-			<div class="c_phone">
-				<div class="container_12">
-					<div class="grid_12">
-						<div class="fa fa-phone"></div>+ 1800 559 6580
-						<span>ORDER NOW!</span>
+
+				<div class="c_phone" style="margin-top: 60px">
+					<div class="container_12">
+						<div class="grid_12">
+							<div class="fa fa-phone"></div>
+							+ 1800 559 6580 <span>ORDER NOW!</span>
+						</div>
+						<div class="clear"></div>
 					</div>
-					<div class="clear"></div>
-				</div>
-			</div>
-<!--==============================Content=================================-->
-			<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - April 07, 2014!</div>
-				<div class="container_12">
-					<div class="grid_5">
-						<h3>Booking Form</h3>
-						<h2 th:if="${message}=='Booking Sucessfully done..'" th:style="'color:green'">Booking Sucessfully done..</h2>
-						<h2 th:if="${message}=='Something went wrong'" th:style="'color:red'">Something went wrong!</h2>
-						<h2 th:text="${personExceed}" th:style="'color:red'"></h2>
-<!-- Booking Form Start -->	 <form id="bookingForm" th:action="@{/bookingForm}" method="POST" th:object="${bookingFormObj}">
-							<div class="fl1">
-								<div class="tmInput">
-									<input name="name" placeHolder="Name:" th:field="*{name}" type="text" data-constraints='@NotEmpty @Required @AlphaSpecial'>
-									<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"  th:style="'color:red'" ></span>
-								</div>
-								<div class="tmInput">
-									<input name="from" placeHolder="Source:" th:field="*{source}"  type="text" data-constraints="@NotEmpty @Required ">
-									<span th:if="${#fields.hasErrors('source')}" th:errors="*{source}" th:style="'color:red'"></span>
-								</div>
-							</div>
-							<div class="fl1">
-								<div class="tmInput">
-									<input name="email" placeHolder="Email:" th:field="*{email}"  type="text" data-constraints="@NotEmpty @Required @Email">
-									<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:style="'color:red'"></span>
-								</div>
-								<div class="tmInput mr0">
-									<input name="to" placeHolder="Destination:" th:field="*{destination}"  type="text" data-constraints="@NotEmpty @Required">
-									<span th:if="${#fields.hasErrors('destination')}" th:errors="*{destination}" th:style="'color:red'"></span>
-								</div>
-							</div>
-							<div class="clear"></div>
-							<strong>Time</strong>
-							<div class="tmInput">
-								<input name="time" placeHolder="" th:value="*{time}"  type="time" data-constraints="@NotEmpty @Required">
-								<span th:if="${#fields.hasErrors('time')}" th:errors="*{time}" th:style="'color:red'"></span>
-								
-							</div>
-							<div class="clear"></div>
-							<strong>Date</strong>
-							<label class="">
-								<input type="date" name="date" th:value="*{date}" 	placeHolder='20/05/2014' data-constraints="@NotEmpty @Required @Date">
-								<span th:if="${#fields.hasErrors('date')}" th:errors="*{date}" th:style="'color:red'"></span>
-								
-							</label>
-							
-							<div class="tmRadio">
-								
-								<p>Comfort</p>
-								<input name="comfort" value="cheap" th:checked="*{comfort=='cheap'}" type="radio"  id="tmRadio0" data-constraints='@RadioGroupChecked(name="Comfort", groups=[RadioGroup])' checked/>
-								<span>Cheap</span>
-								<input name="comfort" value="standard" th:checked="*{comfort=='standard'}" type="radio"  id="tmRadio1" data-constraints='@RadioGroupChecked(name="Comfort", groups=[RadioGroup])' />
-								<span>Standart</span>
-								<input name="comfort" value="lux" th:checked="*{comfort=='lux'}" type="radio"  id="tmRadio2" data-constraints='@RadioGroupChecked(name="Comfort", groups=[RadioGroup])' />
-								<span>Lux</span><br>
-								
-								<span th:if="${#fields.hasErrors('comfort')}" th:errors="*{comfort}" th:style="'color:red'"></span>
-							</div>
-							
-							
-							<div class="fl1 fl2">
-								<em>Adult</em>
-								<select name="adult" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
-									<option th:Selected="*{adult==1}">1</option>
-									<option>1</option>
-									<option th:selected="${bookingFormObj.adult==2}">2</option>
-									<option th:Selected="*{adult==3}">3</option>
-									<option th:selected="*{adult==4}">4</option>
-								</select><br><br>
-								<span th:if="${#fields.hasErrors('adult')}" th:errors="*{adult}" th:style="'color:red'"></span>
-								
-							</div>
-							<div class="fl1 fl2">
-								<em>Children</em>
-								<select name="children" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
-									<option th:selected="*{children==0}">0</option>
-									<option>0</option>
-									<option th:selected="*{children==1}">1</option>
-									<option th:selected="*{children==2}">2</option>
-									<option th:selected="*{children==3}">3</option>
-						
-								</select>
-								<span th:if="${#fields.hasErrors('children')}" th:errors="*{children}" th:style="'color:red'"></span>
-							</div>
-							<div class="clear"></div>
-							<div class="tmTextarea">
-								<textarea name="message" th:field="*{message}" placeHolder="Message" data-constraints='@NotEmpty @Required @Length(min=20,max=999999)'></textarea>
-								<span th:if="${#fields.hasErrors('message')}" th:errors="*{message}" th:style="'color:red'"></span>
-								
-							</div>
-							<button class="btn">Submit</button>
-<!-- Booking Form End--> </form>
-					</div>
-					<div class="grid_6 prefix_1">
-						<a href="index2.html" class="type"><img src="images/page1_img1.jpg" alt=""><span class="type_caption">Economy</span></a>
-						<a href="index2.html" class="type"><img src="images/page1_img2.jpg" alt=""><span class="type_caption">Standard</span></a>
-						<a href="index2.html" class="type"><img src="images/page1_img3.jpg" alt=""><span class="type_caption">Lux</span></a>
-					</div>
-					<div class="clear"></div>
 				</div>
 			</div>
 		</div>
-<!--==============================footer=================================-->
-		<div th:insert="~{fragments/footer.html}"></div>
-		
-		<script>
-			$(function (){
-				$('#bookingForm').bookingForm({
-					ownerEmail: '#'
-				});
-			})
-			$(function() {
-				$('#bookingForm input, #bookingForm textarea').placeholder();
+	</div>
+	<!--==============================footer=================================-->
+	<div th:insert="~{fragments/footer.html}"></div>
+
+	<script>
+		$(function() {
+			$('#bookingForm').bookingForm({
+				ownerEmail : '#'
 			});
-		</script>
-	</body>
+		})
+		$(function() {
+			$('#bookingForm input, #bookingForm textarea').placeholder();
+		});
+	</script>
+</body>
 </html>

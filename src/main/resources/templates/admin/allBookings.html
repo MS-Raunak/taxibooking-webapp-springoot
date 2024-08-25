@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Data Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        p {
+            color: green;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .button-container {
+            text-align: center;
+        }
+
+        .button-container a {
+            text-decoration: none;
+            padding: 10px 20px;
+            color: white;
+            background-color: #007BFF;
+            border-radius: 5px;
+            margin: 5px;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .button-container a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h2>All Bookings</h2>
+    <p th:text="${deleteMsg}"></p>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Source</th>
+                <th>Email</th>
+                <th>Destination</th>
+                <th>Time</th>
+                <th>Date</th>
+                <th>Comfort</th>
+                <th>Adult</th>
+                <th>Children</th>
+                <th>Message</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="booking : ${allBookings}">
+                <td th:text="${booking.id}"></td>
+                <td th:text="${booking.name}"></td>
+                <td th:text="${booking.source}"></td>
+                <td th:text="${booking.email}"></td>
+                <td th:text="${booking.destination}"></td>
+                <td th:text="${booking.time}"></td>
+                <td th:text="${booking.date}"></td>
+                <td th:text="${booking.comfort}"></td>
+                <td th:text="${booking.adult}"></td>
+                <td th:text="${booking.children}"></td>
+                <td th:text="${booking.message}"></td>
+                <td>
+                    <a th:href="@{/admin/deleteBooking/{id}(id=${booking.id})}" style="color: red;">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="button-container">
+        <a href="/admin/dashboard">Admin Dashboard</a>
+        <a href="/index">Home</a>
+    </div>
+</body>
+</html>

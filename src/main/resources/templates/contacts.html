@@ -43,8 +43,7 @@
 
 		<!--==============================Content=================================-->
 		<div class="content">
-			<div class="ic">More Website @ ms-raunak.com -
-				April 07, 2024!</div>
+			<div class="ic">More Website @ ms-raunak.com - April 07, 2024!</div>
 			<div class="container_12">
 				<div class="grid_12">
 					<h3>Find Us</h3>
@@ -59,25 +58,12 @@
 				<div class="grid_5">
 					<h3>Contact Info</h3>
 					<div class="map">
-						<div class="text1 color2">Lorem ipsum dolor sit amet,
-							consecteturpiscinger elit um dolor sit amet, consecteturpiscing.</div>
-						<p>
-							Don’t forget, 24/7 support is available for valueable customers <span
-								class="color1"><a
-								href="http://www.templatemonster.com/website-templates.php"
-								rel="nofollow">premium websites</a></span> only. Free ones lack this
-							privilege.
-						</p>
-						<p>
-							Use <span class="color1"><a
-								href="http://www.templatetuning.com/" rel="nofollow">Website
-									Tuning</a></span> services if you need to create any website please contact us.
-						</p>
+
 						<address>
 							<dl>
 								<dt>
-									The Company Name Inc. <br> 9870 St Chhaya Palace,<br>
-									Pakli, DC 45 Fr 45.
+									The Company Name Inc. <br> 9870, ms-raunak,<br>
+									Bengaluru, DC 45 Fr 45.
 								</dt>
 								<dd>
 									<span>Telephone:</span> +1 800 603 6035
@@ -86,45 +72,55 @@
 									<span>FAX:</span> +1 800 889 9898
 								</dd>
 								<dd>
-									E-mail: <a href="#" class="color1">chhaya@demolink.org</a>
+									E-mail: <a href="#" class="color1">ms@demolink.org</a>
 								</dd>
 							</dl>
 						</address>
 					</div>
+					<p style="margin-top: 20px">
+						Don’t forget to see my ecommerce website <span class="color1"><a
+							href="#" rel="nofollow">EcoCart Web Application</a></span> Thank You
+						Guys!!
+					</p>
 				</div>
 				<div class="grid_6 prefix_1">
-<!-- Contact Form START -->
+					<!-- Contact Form START -->
 					<h3>Contact Form</h3>
-					<h2 th:if="${message}=='Message Sent Successfully'" th:style="'color:green'">Message Sent Successfully</h2>
-					<h2 th:if="${message}=='Something went wrong'" th:style="'color:red'">Something went wrong!</h2>
-					<form id="form" th:action="@{/contactForm}" th:method="POST" th:object="${contactFormObj}">
+					<h2 th:if="${message}=='Message Sent Successfully'"
+						th:style="'color:green'">Message Sent Successfully</h2>
+					<h2 th:if="${message}=='Something went wrong'"
+						th:style="'color:red'">Something went wrong!</h2>
+					<form id="form" th:action="@{/contactForm}" th:method="POST"
+						th:object="${contactFormObj}">
 						<div class="success_wrapper">
 							<div class="success-message">Contact form submitted</div>
 						</div>
-						<label class="name">
-							 <input type="text" th:field="*{name}" placeholder="Name:" data-constraints="@Required @JustLetters" />
-						 </label> 
-						 
-						 <label class="email"> 
-						 	<input type="text" th:field="*{email}" placeholder="E-mail:" data-constraints="@Required @Email" /> 
-						 	<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:style="'color:red'" th:value="${contactFormObj.email}"></span>
-						</label> 
-						<label class="phone"> 
-							<input type="text" th:field="*{phone}" placeholder="Phone:" data-constraints="@Required @JustNumbers" /> 
-							<span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" th:style="'color:red'" th:value="${contactFormObj.phone}"></span>
-						</label> 
-						<label class="message"> 
-							<textarea th:field="*{message}"
+						<label class="name"> <input type="text" th:field="*{name}"
+							placeholder="Name:" data-constraints="@Required @JustLetters" />
+							<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+							th:style="'color:red'" th:value="${contactFormObj.name}"></span>
+
+						</label> <label class="email"> <input type="text"
+							th:field="*{email}" placeholder="E-mail:"
+							data-constraints="@Required @Email" /> <span
+							th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+							th:style="'color:red'" th:value="${contactFormObj.email}"></span>
+						</label> <label class="phone"> <input type="text"
+							th:field="*{phone}" placeholder="Phone:"
+							data-constraints="@Required @JustNumbers" /> <span
+							th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"
+							th:style="'color:red'" th:value="${contactFormObj.phone}"></span>
+						</label> <label class="message"> <textarea th:field="*{message}"
 								placeholder="Message:"
 								data-constraints='@Required @Length(min=20,max=999999)'>
-							</textarea>
-							<span th:if="${#fields.hasErrors('message')}" th:errors="*{message}" th:style="'color:red'" th:text="${contactFormObj.name}"></span>
+							</textarea> <span th:if="${#fields.hasErrors('message')}"
+							th:errors="*{message}" th:style="'color:red'"
+							th:text="${contactFormObj.name}"></span>
 						</label>
 						<div>
 							<div class="clear"></div>
 							<div class="btns">
-								<button class="btn">Send</button>
-								<a href="#" data-type="reset" class="btn">Clear</a>
+								<button class="btn" style="margin-right:200px">Submit</button>
 							</div>
 						</div>
 					</form>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Login form</title>
+<link rel="stylesheet" href="./css/loginStyle.css">
+
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <p th:if="${param.error}" class="error">Please provie valid credentials!</p>
+        <p th:if="${logout}" class="logout">Logout successfully!</p>
+        <form action="/login" method="post">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="username:admin" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="password:Admin123" required>
+            </div>
+            <button type="submit">Login</button>
+            <a href="admin/changeCredentialsView">Update admin credentials</a>
+        </form>
+    </div>
+</body>
+
+</html>

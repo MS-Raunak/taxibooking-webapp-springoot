@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Contacts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .table-container {
+            width: 80%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .delete-link {
+            color: red;
+            font-weight: bold;
+        }
+
+        .delete-link:hover {
+            color: darkred;
+        }
+
+        p {
+            color: green;
+            text-align: center;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-link {
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            font-size: 18px;
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .dashboard-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="table-container">
+        <h2>List Of Contacts</h2>
+        <p th:text="${deleteMsg}"></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Message</th>
+                    <th>Phone</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="contact: ${allContacts}">
+                    <td th:text="${contact.id}"></td>
+                    <td th:text="${contact.name}"></td>
+                    <td th:text="${contact.email}"></td>
+                    <td th:text="${contact.message}"></td>
+                    <td th:text="${contact.phone}"></td>
+                    <td>
+                        <a th:href="@{/admin/deleteContact/{id}(id=${contact.id})}" class="delete-link">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <a href="/admin/dashboard" class="dashboard-link">Dashboard</a>
+</body>
+</html>

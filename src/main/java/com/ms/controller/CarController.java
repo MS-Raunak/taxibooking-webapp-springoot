@@ -1,5 +1,7 @@
 package com.ms.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 
@@ -15,8 +18,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ms.model.BookingForm;
 import com.ms.model.ContactForm;
+import com.ms.model.ServiceForm;
 import com.ms.service.BookingFormService;
 import com.ms.service.ContactFormService;
+import com.ms.service.ServiceFormService;
 
 @Controller
 public class CarController {
@@ -31,6 +36,10 @@ public class CarController {
 	public void setBookingFormService(BookingFormService bookingFormService) {
 		this.bookingFormService = bookingFormService;
 	}
+	@Autowired
+	ServiceFormService serviceFormService;
+	
+	
 	
 	
 
@@ -43,7 +52,7 @@ public class CarController {
 		 * which is used to send data from controller to view
 		 */
 		model.addAttribute("mycurrentrequest", requestURI);
-		model.addAttribute("bookingFormObj", new BookingForm());
+		//model.addAttribute("bookingFormObj", new BookingForm());
 
 		return "index";
 	}
@@ -72,6 +81,10 @@ public class CarController {
 		 */
 		model.addAttribute("mycurrentrequest", requestURI);
 		//model.addAttribute("bookingFormObj", new BookingForm());//might be mistake to write here that's why commented
+		
+		//Collect data
+		List<ServiceForm> allServices = serviceFormService.readAllServices();
+		model.addAttribute("allServices", allServices);
 		return "services";
 	}
 
@@ -115,6 +128,11 @@ public class CarController {
 		return "redirect:/contacts"; // to avoid re-submission using redirect here
 	}
 	
+	@GetMapping("/showBookingForm")
+	public String showBookingForm(Model model ) {
+		model.addAttribute("bookingFormObj", new BookingForm());
+		return "bookingFormPage";
+	}
 	
 	@PostMapping("/bookingForm")
 	public String bookingForm(@Valid @ModelAttribute("bookingFormObj") BookingForm bookingForm, 
@@ -122,11 +140,11 @@ public class CarController {
 		
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("bindingResult", bindingResult);
-			return "index";
+			return "bookingFormPage";
 		}
 		else if(bookingForm.getAdult() + bookingForm.getChildren() > 4) {
 			model.addAttribute("personExceed", "Maximum 4 person allowed in a taxi");
-			return "index";
+			return "bookingFormPage";
 		}
 		//service
 		BookingForm saveBookingFormService = bookingFormService.saveBookingFormService(bookingForm);
@@ -137,6 +155,21 @@ public class CarController {
 		else {
 			redirectAttributes.addFlashAttribute("message", "Something went wrong");
 		}
-		return "redirect:/index"; 
+		return "redirect:/showBookingForm"; 
 	}
+	
+	//Showing custom login form or return custom logout message with custom login form
+	@GetMapping("/login")
+	public String getMethodName(HttpServletRequest request, Model model) {
+		
+		//Mapping for default logout message, coming from customLogoutHandler
+		ServletContext servletContext = request.getServletContext();
+		Object attribute = servletContext.getAttribute("logout");
+		if(attribute instanceof Boolean) {
+			model.addAttribute("logout", attribute);
+			servletContext.removeAttribute("logout");
+		}
+		return "/adminLogin";
+	}
+	
 }
